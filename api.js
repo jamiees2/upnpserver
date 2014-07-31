@@ -10,6 +10,7 @@ var util = require('util');
 var UPNPServer = require('./lib/upnpServer');
 var PathRepository = require('./lib/pathRepository');
 var MusicRepository = require('./lib/musicRepository');
+var Repository = require('./lib/repository');
 
 var API = function(configuration, paths) {
   assert(configuration === undefined || typeof (configuration) == "object",
@@ -43,8 +44,10 @@ var API = function(configuration, paths) {
           self.addDirectory("/", p);
           return;
         }
-
-        if (typeof (p) == "object" && p.path) {
+        if ( p instanceof Repository) {
+          self.configuration.repositories.push(p);
+          return;
+        } else if (typeof (p) == "object" && p.path) {
           var mountPoint = p.mountPoint || "/";
           var type = p.type && p.type.toLowerCase();
 
