@@ -108,6 +108,7 @@ API.prototype.start = function(callback) {
 
           self.emit("starting");
 
+          self.upnpServer = upnpServer;
           var descURL = upnpServer.descriptionPath;
           if (descURL.charAt(0) == "/") {
             descURL = descURL.substring(1);
@@ -183,8 +184,6 @@ API.prototype.start = function(callback) {
 
           callback(null);
         });
-
-    self.upnpServer = upnpServer;
   });
 };
 
@@ -224,4 +223,11 @@ API.prototype.stop = function(callback) {
   }
 
   callback(null, stopped);
+}
+
+API.prototype.addRepository = function(repository, callback) {
+  if (typeof this.upnpServer === "undefined") {
+    return callback("Nonexistent server");
+  }
+  this.upnpServer.addRepository(repository, callback);
 }

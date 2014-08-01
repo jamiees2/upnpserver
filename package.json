@@ -14,20 +14,20 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-	  "node-ssdp": "1.0.1",
-	  "jstoxml": "0.2",
-	  "node-uuid": "1.4",
-	  "xmldoc": "0.1.2",
-	  "id3": "0.0.3",
-	  "mime": "1.2",
-	  "send": "0.3",
-	  "underscore": "1.6",
-	  "async": "0.8",
-	  "commander": "2.2",
-	  "ip": "0.3"
-	},
-	"devDependecies": {	 
-	},
+    "async": "0.8",
+    "commander": "2.2",
+    "debug": "^1.0.4",
+    "id3": "0.0.3",
+    "ip": "0.3",
+    "jstoxml": "0.2",
+    "mime": "1.2",
+    "node-ssdp": "1.0.1",
+    "node-uuid": "1.4",
+    "send": "0.3",
+    "underscore": "1.6",
+    "xmldoc": "0.1.2"
+  },
+  "devDependecies": {},
   "keywords": [
     "Node.js",
     "ushare",
